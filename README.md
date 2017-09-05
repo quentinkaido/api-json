@@ -1,4 +1,4 @@
-# Exploitation de données JSON en VanillaJS
+# Exploitation de données JSON en VanillaJS
 
 Cours par Philippe Pary, 2017
 
