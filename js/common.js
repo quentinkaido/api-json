@@ -15,7 +15,10 @@ var showPeople = function() {
     // Panel title: person's name and driving licence
     personCard += "<div class='panel-heading'><h1 class='panel-title'>" + person.name;
     if (person.drivinglicence) {
-      personCard += "&nbsp;<span class='label label-success'>permis B</span>";
+      personCard += "&nbsp;<span class='label label-success'>permis&nbsp;B</span>";
+    }
+    else {
+      personCard += "&nbsp;<span class='label label-warning'>Ø&nbsp;permis</span>";
     }
     personCard += "</h1></div>";
     // Panel body : person's age and contact/edition/suppression buttons
