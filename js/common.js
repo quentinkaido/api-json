@@ -10,7 +10,7 @@ var showPeople = function() {
   // Then we display a card for each people
   people.forEach(function(person,index) {
     // We prepare the whole HTML code in a variable called personCard
-    personCard = "<div class='col-lg-3 col-md-4 col-xs-6'>"; // Begin of column
+    personCard = "<div class='col-lg-3 col-md-4 col-xs-6 document'>"; // Begin of column
     personCard += "<div class='panel panel-default'>"; // Begin of panel
     // Panel title: person's name and driving licence
     personCard += "<div class='panel-heading'><h1 class='panel-title'>" + person.name;
@@ -27,16 +27,15 @@ var showPeople = function() {
     personCard += "<div class='btn-group'>"; // Begin of buttons group
     // Mailto button : email set in href attribute
     personCard += "<a class='btn btn-info' href='mailto:" + person.email +"'>Contacter</a>";
-    // Edit button: index (it's the current position in the people table) is given as GET param
-    personCard += "<a class='btn btn-warning' href='edit.html?id=" + index + "'>Éditer</a>";
     // Delete button: index (it's the current position in the people table) is given as GET param
-    personCard += "<a class='btn btn-danger' href='delete.html?id=" + index + "'>Supprimer</a>";
+    personCard += "<a class='btn btn-danger' id='delete' onclick='deletestudent(" + index + ")'>Supprimer</a>";
+    personCard +="<a class='btn btn-warning' data-toggle='modal' data-target='#product_view'><i class='fa fa-search'></i>Éditer</button>";
     personCard += "</div>" // End of buttons group
     personCard += "</div>"; // End of panel
     personCard += "</div>"; // End of column
     // Card is ready : we add it to the app's HTML
     app.innerHTML += personCard;
-});
+  });
 }
 
 var printInfo = function() {

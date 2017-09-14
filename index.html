@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
   <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
   <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="json-2017/node_modules/popper.js/dist/popper.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+
+
   <title>TP JSON: Gestion de personnes</title>
 </head>
 <body>
@@ -14,28 +19,137 @@
         <ul class="nav navbar-nav">
           <li><a onclick="printInfo();"><i class="glyphicon glyphicon-home"></i>&nbsp;Accueil</a></li>
           <li><a onclick="showPeople();"><i class="glyphicon glyphicon-th-list"></i>&nbsp;Personnes</a></li>
-          <li><a onclick="createPersonForm();"><i class="glyphicon glyphicon-plus"></i>&nbsp;Ajouter une personne</a></li>
+          <li><a data-target='#create_student' data-toggle='modal'><i class="glyphicon glyphicon-plus" ></i>&nbsp;Ajouter une personne</a></li>
           <li><a><i class="glyphicon glyphicon-hand-right"></i>&nbsp;<span id="infoZone"></span></a></li>
         </ul>
+        <div="search">
+        <input type="text" class="documents" id="search" placeholder="Rechercher">
+      </div>
+
+    </div>
+  </div>
+</nav>
+<!-- Modifier une personne -->
+<div class="modal fade product_view" id="product_view">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        <form class="form-horizontal">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Modifier la personne</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Prénom</label>
+              <div class="col-md-4">
+                <input id="name" name="name" placeholder="prénom" class="form-control input-md" type="text">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="age">Âge</label>
+              <div class="col-md-4">
+                <input id="age" name="age" placeholder="âge" class="form-control input-md" type="text">
+              </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="button1id">Permis</label>
+              <div class="col-md-8">
+                <button id="button1id" name="button1id" class="btn btn-success">Permis B</button>
+                <button id="button2id" name="button2id" class="btn btn-danger">Ø Permis</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
       </div>
     </div>
-  </nav>
+  </div>
+</div>
+
+<!-- Créer une personne -->
+<div class="modal fade create_student" id="create_student">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+        <form class="form-horizontal">
+          <fieldset>
+
+            <!-- Form Name -->
+            <legend>Créer une personne</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="name">Prénom</label>
+              <div class="col-md-4">
+                <input id="name" name="name" placeholder="prénom" class="form-control input-md" type="text">
+
+              </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="age">Âge</label>
+              <div class="col-md-4">
+                <input id="age" name="age" placeholder="âge" class="form-control input-md" type="text">
+              </div>
+            </div>
+
+            <!-- Button (Double) -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="button1id">Permis</label>
+              <div class="col-md-8">
+                <button id="button1id" name="button1id" class="btn btn-primary">Permis B</button>
+                <button id="button2id" name="button2id" class="btn btn-danger">Ø Permis</button>
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="singlebutton" onclick="create">Valider</label>
+              <div class="col-md-4">
+                <button id="singlebutton" name="singlebutton" class="btn btn-success">Valider</button>
+              </div>
+            </div>
+
+          </fieldset>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div id="documents">
+
 
   <div class="container">
     <div id="application">
     </div>
   </div>
-
-  <nav class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container-fluid">
-      <div class="nav">
-        <ul class="nav navbar-nav">
-          <li><a>2017 TP JSON</a></li>
-        </ul>
-      </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <div class="nav">
+      <ul class="nav navbar-nav">
+        <li><a>2017 TP JSON</a></li>
+      </ul>
     </div>
-  </nav>
-  <script type="text/javascript" src="js/loader.js"></script>
-  <script type="text/javascript" src="js/common.js"></script>
-  </body>
+  </div>
+</nav>
+<script type="text/javascript" src="js/loader.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="js/search.js"></script>
+<script type="text/javascript" src="js/delete.js"></script>
+<script type="text/javascript" src="js/create_student.js"></script>
+
+</body>
 </html>

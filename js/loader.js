@@ -284,7 +284,7 @@ var getLocalStorageData = function() {
   As localStorage can only store text, the data is JSON encoded and we need to
   decode it before sending it. So we use JSON.parse on the data fetched with
   localStorage.getItem() */
-  return JSON.Parse(localStorage.getItem('people'));
+  return JSON.parse(localStorage.getItem('people'));
 }
 
 /* We test if the localStorage is empty or not
